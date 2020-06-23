@@ -1,0 +1,2 @@
+# seetaface6Recognition
+基于中科院最新开源的模型提供python实现的人脸全流程方案 人脸定位 人脸识别 人脸登录
