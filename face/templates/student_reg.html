@@ -1,0 +1,294 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>编辑学生信息</title>
+{% endblock %}
+
+{% block content %}
+
+    <form style="margin-left:500px;margin-top:100px;" method="post" >
+        <div style="color: red">{{ message.info }}</div>
+        <input type="hidden" name="id"  id="id" value="{% if stu %}{{ stu.id}}{% endif %}">
+         <div class="form-group">
+             <label for="user" stype="display:inline;">姓名：</label>
+             <input type="text" class="form-control" id="name" name="name"  required="required"  value="{% if stu %} {{ stu.name}} {% endif %}" style="display:inline;width:300px;"autocomplete="off" />
+         </div>
+         <div class="form-group">
+             <label for="email" style="display:inline;">性别：</label>
+             <select class="form-control"  name="gender" id="gender"  required="required" style="display:inline;width:300px;"autocomplete="off"  value="{% if stu %} {{ stu.gender}} {% endif %}">
+                 <option value="男">男</option>
+                <option value="女">女</option>
+             </select>
+         </div>
+         <div class="form-group">
+             <label for="password" style="display:inline;">学号：</label>
+            <input type="text" class="form-control" id="sno" name="sno"  required="required" value="{% if stu %}{{ stu.sno}}{% endif %} " style="display:inline;width:300px;"autocomplete="off"  />
+         </div>
+        <div class="form-group">
+             <label for="email" style="display:inline;">专业：</label>
+             <select class="form-control" id="subject" name="subject" style="display:inline;width:300px;"autocomplete="off" required value="{% if stu %}{{ stu.subject}}{% endif %}">
+                 <option value="">请选择</option>
+                 <option value="国际经济与贸易">国际经济与贸易</option>
+                 <option value="英语">英语</option>
+                 <option value="信息与计算科学">信息与计算科学</option>
+                 <option value="应用化学">应用化学</option>
+                 <option value="机械工程">机械工程</option>
+                 <option value="机械电子工程">机械电子工程</option>
+                 <option value="过程装备与控制工程">过程装备与控制工程</option>
+                 <option value="测控技术与仪器">测控技术与仪器</option>
+                 <option value="材料科学与工程">材料科学与工程</option>
+                 <option value="高分子材料与工程">高分子材料与工程</option>
+                 <option value="功能材料">功能材料</option>
+                 <option value="能源与动力工程">能源与动力工程</option>
+                 <option value="电气工程及其自动化">电气工程及其自动化</option>
+                 <option value="通信工程">通信工程</option>
+                 <option value="自动化">自动化</option>
+                 <option value="计算机科学与技术">计算机科学与技术</option>
+                 <option value="化学工程与工艺">化学工程与工艺</option>
+                 <option value="制药工程">制药工程</option>
+                 <option value="油气储运工程">油气储运工程</option>
+                 <option value="环境工程">环境工程</option>
+                 <option value="安全工程">安全工程</option>
+                 <option value="管理学">管理学</option>
+                 <option value="信息管理与信息系统">信息管理与信息系统</option>
+                 <option value="市场营销">市场营销</option>
+                 <option value="会计学">会计学</option>
+                 <option value="公共事业管理">公共事业管理</option>
+                 <option value="物流管理">物流管理</option>
+                 <option value="旅游管理">旅游管理</option>
+             </select>
+         </div>
+        <div class="form-group">
+             <label for="email" style="display:inline;">借书类型：</label>
+             <select class="form-control"  name="book_type1" id="book_type1" value="{% if stu %}{{ stu.book_type1}}{% endif %}" style="display:inline;width:300px;"autocomplete="off" required>
+                    <option value="">请选择</option>
+                    <option value="哲学">哲学</option>
+                    <option value="宗教">宗教</option>
+                    <option value="军事">军事</option>
+                    <option value="经济">经济</option>
+                    <option value="文学">文学</option>
+                    <option value="艺术">艺术</option>
+                    <option value="历史地理">历史地理</option>
+                    <option value="文化科学教育体育">文化科学教育体育</option>
+                    <option value="数理科学和化学">数理科学和化学</option>
+                    <option value="无">无</option>
+             </select>
+            <input type="number" class="form-control" name="book_type1_number"   required  value="{% if stu %}{{ stu.book_type1_number}}{% endif %}" id="book_type1_number"style="display:inline;width:120px;"autocomplete="off" />
+         </div>
+
+        <div class="form-group">
+             <label for="email" style="display:inline;">借书类型：</label>
+             <select class="form-control"  name="book_type2"  value="{% if stu %}{{ stu.book_type2}}{% endif %}"  id="book_type2" style="display:inline;width:300px;"autocomplete="off" required>
+                    <option value="">请选择</option>
+                    <option value="哲学">哲学</option>
+                    <option value="宗教">宗教</option>
+                    <option value="军事">军事</option>
+                    <option value="经济">经济</option>
+                    <option value="文学">文学</option>
+                    <option value="艺术">艺术</option>
+                    <option value="历史地理">历史地理</option>
+                    <option value="文化科学教育体育">文化科学教育体育</option>
+                    <option value="数理科学和化学">数理科学和化学</option>
+                    <option value="无">无</option>
+             </select>
+            <input type="number" class="form-control" name="book_type2_number"  required value="{% if stu %}{{ stu.book_type2_number}}{% endif %}"  id="book_type2_number" style="display:inline;width:120px;"autocomplete="off" />
+         </div>
+        <div class="form-group">
+             <label for="email" style="display:inline;">课外活动：</label>
+             <select class="form-control"  name="exercise1" id="exercise1"style="display:inline;width:300px;"autocomplete="off" required  value="{% if stu %} { stu.exercise1}}{% endif %} ">
+                 <option value="">请选择</option>
+                 <option value="娱乐">娱乐</option>
+                <option value="体育">体育</option>
+                <option value="音乐">音乐</option>
+                <option value="心理读书">心理读书</option>
+                <option value="工艺">工艺</option>
+                <option value="展览">展览</option>
+                <option value="游戏">游戏</option>
+                <option value="无">无</option>
+             </select>
+            <input type="number" class="form-control"  name="exercise1_number"  required  value="{% if stu %}{{ stu.exercise1_number}}{% endif %}" id="exercise1_number" style="display:inline;width:120px;"autocomplete="off" min="0" max="100" />
+         </div>
+         <div class="form-group">
+             <label for="email" style="display:inline;">课外活动：</label>
+             <select class="form-control"  name="exercise2" id="exercise2" required style="display:inline;width:300px;"autocomplete="off" value="{% if stu %}{{ stu.exercise2}}{% endif %}">
+                 <option value="">请选择</option>
+                 <option value="娱乐">娱乐</option>
+                <option value="体育">体育</option>
+                <option value="音乐">音乐</option>
+                <option value="心理读书">心理读书</option>
+                <option value="工艺">工艺</option>
+                <option value="展览">展览</option>
+                <option value="游戏">游戏</option>
+                <option value="无">无</option>
+             </select>
+            <input type="number" class="form-control"  name="exercise2_number"  value="{% if stu %}{{ stu.exercise2_number}}{% endif %}"  required id="exercise2_number" style="display:inline;width:120px;"autocomplete="off" min="0" max="100" />
+         </div>
+        <div class="form-group">
+             <label for="email" style="display:inline;">竞赛：</label>
+             <select class="form-control"  name="competition1" id="competition1" value="{% if stu %}{{ stu.competition1}}{% endif %}"  required style="display:inline;width:300px;"autocomplete="off">
+                    <option value="">请选择</option>
+                    <option value="物理">物理</option>
+                    <option value="数学">数学</option>
+                    <option value="化学">化学</option>
+                    <option value="科技">科技</option>
+                    <option value="文化">文化</option>
+                    <option value="体育">体育</option>
+                    <option value="音乐">音乐</option>
+                    <option value="电竞">电竞</option>
+                    <option value="无">无</option>
+             </select>
+            <input type="number" class="form-control"  name="competition1_number" value="{% if stu %}{{ stu.competition1_number}}{% endif %}"  required value="0" id="competition1_number" style="display:inline;width:120px;"autocomplete="off" min="0" max="100"/>
+         </div>
+        <div class="form-group">
+             <label for="email" style="display:inline;">竞赛：</label>
+             <select class="form-control"  name="competition2"  id="competition2" value="{% if stu %}{{ stu.competition2}}{% endif %}"  required style="display:inline;width:300px;"autocomplete="off">
+                    <option value="">请选择</option>
+                    <option value="物理">物理</option>
+                    <option value="数学">数学</option>
+                    <option value="化学">化学</option>
+                    <option value="科技">科技</option>
+                    <option value="文化">文化</option>
+                    <option value="体育">体育</option>
+                    <option value="音乐">音乐</option>
+                    <option value="电竞">电竞</option>
+                    <option value="无">无</option>
+             </select>
+            <input type="number" class="form-control"  name="competition2_number"   value="{% if stu %}{{ stu.competition2_number}}{% endif %}"   required id="competition2_number"style="display:inline;width:120px;"autocomplete="off" min="0" max="100"/>
+         </div>
+        <div class="form-group">
+             <label for="password" style="display:inline;">平均成绩：</label>
+            <input type="number" class="form-control" id="grade" name="grade"   value="{% if stu %}{{ stu.grade}}{% endif %}" required style="display:inline;width:120px;"autocomplete="off" min="0" max="100" />
+         </div>
+        <div class="form-group">
+             <label for="password" style="display:inline;">流量使用：</label>
+            <input type="number" class="form-control" id="network" name="network"  value="{% if stu %}{{ stu.network}}{% endif %}" required style="display:inline;width:120px;"autocomplete="off" min="0" max="100" />
+         </div>
+        <a href="/"><button type="button" class="btn btn-primary">返回</button></a>
+        <a  class="btn btn-primary" id="save">保存</a>
+     </form>
+    
+    <script>
+    	$(function() {
+            var stu = {{ stu |tojson}};
+            if (stu.id){
+                $('#subject').val(stu.subject);
+                $('#sno').attr("readOnly", true);
+                $('#book_type1').val(stu.book_type1);
+
+                 $('#book_type2').val(stu.book_type2);
+
+                $('#exercise1').val(stu.exercise1);
+
+                $('#exercise2').val(stu.exercise2);
+
+                $('#competition1').val(stu.competition1);
+
+                $('#competition2').val(stu.competition2);
+
+
+            }else{
+                $('#sno').attr("readOnly", false);
+            }
+
+            $('#save').on('click', function (item) {
+                var name = $('#name').val();
+                var gender = $('#gender').val();
+                var id = $('#id').val();
+                var sno = $('#sno').val();
+                var subject = $('#subject').val();
+                var grade = $('#grade').val();
+                var network = $('#network').val();
+
+                var book_type1 = $('#book_type1').val();
+                var book_type1_number = $('#book_type1_number').val();
+                var book_type2 = $('#book_type2').val();
+                var book_type2_number = $('#book_type2_number').val();
+                var exercise1 = $('#exercise1').val();
+                var exercise1_number = $('#exercise1_number').val();
+                var exercise2 = $('#exercise2').val();
+                var exercise2_number = $('#exercise2_number').val();
+                var competition1 = $('#competition1').val();
+                var competition1_number = $('#competition1_number').val();
+                var competition2 = $('#competition2').val();
+                var competition2_number = $('#competition2_number').val();
+
+
+                var data = {
+                    "sno": sno
+                };
+                var id = $('#id').val();
+                if (!id) {
+                    flag = check_sno(JSON.stringify(data));
+                } else {
+                    flag = false
+                }
+                if(flag){
+                    return;
+                }
+                if (!flag){
+                    var data = {id: id, name:name, gender: gender, sno: sno, subject: subject, grade:grade,
+                        network: network, book_type1: book_type1, book_type2: book_type2 ,
+                    exercise1: exercise1, exercise2: exercise2,competition1: competition1,
+                    competition2: competition2, book_type1_number: book_type1_number, book_type2_number: book_type2_number,
+                    exercise1_number: exercise1_number, exercise2_number: exercise2_number, competition1_number: competition1_number,
+                        competition2_number: competition2_number};
+                    do_create(JSON.stringify(data));
+                }
+            });
+
+            $('#sno').on('blur', function (item) {
+                var sno = $('#sno').val();
+                var data = {
+                    "sno": sno
+                };
+                check_sno(JSON.stringify(data));
+            });
+
+        });
+
+    	function do_create(content) {
+         $.ajax({
+        type: "post",
+        url: '/student/save',  
+        processData: false,
+            contentType:false,
+        data: content,
+        success: function (data) {
+                 $('#id').val(data.id);
+                 $('#sno').attr("readOnly", true);
+            document.location.href = '/';
+         },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("操作失敗");
+        }
+
+    });
+     }
+
+     function check_sno(content) {
+         var flag = false;
+         $.ajax({
+        type: "post",
+        url: '/student/check',  
+        processData: false,
+            contentType:false,
+            async:false,
+        data: content,
+        success: function (data) {
+                 $('#id').val(data.id);
+                 if (data.flag==1){
+                     alert("学号已经存在，请修改!");
+                 }
+                 flag = true;
+           
+         },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("操作失敗");
+        }
+
+    });
+
+         return flag
+     }
+    	</script>
+{% endblock %}
