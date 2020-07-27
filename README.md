@@ -11,15 +11,13 @@ SeetaFace6包含人脸识别的基本能力：人脸检测、关键点定位、�
 
 
 
-当前版本是根据开源的python版本进行实现 人脸全流程 提供的应用，识别效果高于facenet模型， 对同一个人图片相似度高  不同人相似度极低  复合要求
-so文件  链接：https://pan.baidu.com/s/1cA0UbI1wUmcI0fhJHVyLYQ 
-提取码：ifoo
+当前版本是根据开源的python版本进行实现 人脸全流程 提供的应用，识别效果高于facenet模型， 对同一个人图片相似度高  不同人相似度极低  
+ 
+符合要求so文件  链接：https://pan.baidu.com/s/1cA0UbI1wUmcI0fhJHVyLYQ 
+提取码：ifoo  需要将文件解压到 seetaface/lib/centos 目录下 
 
 model文件 链接：https://pan.baidu.com/s/1Nh5jt1P-kxxLzjYP7B-VMw 
-提取码：psfm
-
-
-将这俩个文件解压放到seetaface/lib/ 目录下
+提取码：psfm 将这俩个文件解压放到seetaface/lib/model 目录下
 
 
 
